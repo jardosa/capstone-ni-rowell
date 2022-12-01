@@ -1,0 +1,35 @@
+.navbar {
+    background-color: rgb(5, 57, 100);
+}
+
+img {
+    border-radius: 50px;
+    height: 80px;
+    margin-left: 90px;
+}
+
+.btn {
+    background-color: rgba(0, 128, 0, 0.61);
+    color: white;    
+}
+
+.login {
+    margin-left: 50px;
+}
+
+.register {
+    margin-left: 30px;
+}
+
+.logout {
+    margin-left: 50px;
+}
+
+
+#cart {
+    color: white;
+}
+
+#cart_count {
+    color: white;
+}

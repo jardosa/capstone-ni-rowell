@@ -1,0 +1,27 @@
+[
+{
+    "productName" : "RFID wallet",
+    "description" : "Carbon - compact wallet that can hold 12 cards with money clip",
+    "price" : 2000,        
+    "stock" : 50
+},
+{
+    "productName" : "RFID wallet2",
+    "description" : "Black - compact wallet that can hold 12 cards with money clip",
+    "price" : 2000,        
+    "stock" : 50
+},
+{
+    "productName" : "RFID wallet3",
+    "description" : "Silver - compact wallet that can hold 12 cards with money clip",
+    "price" : 2000,        
+    "stock" : 50
+},
+{
+    "productName" : "RFID wallet4",
+    "description" : "Navy - compact wallet that can hold 12 cards with money clip",
+    "price" : 2000,
+    "stock": 50
+}
+    
+]

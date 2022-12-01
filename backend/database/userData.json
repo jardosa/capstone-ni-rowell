@@ -1,0 +1,34 @@
+[
+{
+    "firstName" : "Tyler",
+    "lastName" : "Durden",
+    "email" : "admin@mail.com",
+    "userName" : "admin",
+    "password" :"admin1234",
+    "mobileNo" : "09178897586"
+},
+{
+    "firstName" : "Patrick",
+    "lastName" : "Bateman",
+    "email" : "user@mail.com",
+    "userName" : "user",
+    "password" :"user1234",
+    "mobileNo" : "09164153521"
+},
+{
+    "firstName" : "Haffaz",
+    "lastName" : "Aladeen",
+    "email" : "user2@mail.com",
+    "userName" : "user",
+    "password" :"user1234",
+    "mobileNo" : "09164153521"
+},
+{
+    "firstName" : "Jordan",
+    "lastName" : "Belfort",
+    "email" : "user2@mail.com",
+    "userName" : "user2",
+    "password" :"user1234",
+    "mobileNo" : "09164153521"
+}
+]
