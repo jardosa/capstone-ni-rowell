@@ -72,6 +72,7 @@ module.exports.decode = (token) => {
             if (err) {
                 return null
             } else {
+                // TODO: FIX THIS PART
                 return jwt.decode(token, {complete: true}).payload;
             }
         })

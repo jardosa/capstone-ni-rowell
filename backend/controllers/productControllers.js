@@ -93,8 +93,9 @@ module.exports.archiveProduct = (reqParams, data) => {
         isAvailable: data.product.isAvailable
     };
 
-    console.log(archivedProduct);
+    console.log({archivedProduct});
 
+    console.log(data)
     if (data.isAdmin) {
         return Product.findByIdAndUpdate(reqParams.productId, archivedProduct).then((product, error) => {
                 if (error) {

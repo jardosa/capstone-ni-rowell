@@ -23,7 +23,7 @@ export default function Products () {
             setProducts(productArr)
             
         })
-    }, [products])
+    }, [])
 
     return (
         (user.isAdmin)?

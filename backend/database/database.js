@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectDatabase = () => {
-    mongoose.connect("mongodb+srv://admin123:admin123@project0.zzkxx4f.mongodb.net/ecom?retryWrites=true&w=majority", {
+    mongoose.connect("mongodb://localhost/capstone", {
         useNewUrlParser: true,
         useUnifiedTopology: true        
     });

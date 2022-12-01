@@ -1,8 +1,8 @@
-const Product = require('../backend/models/Product');
+const Product = require('../models/Product');
 const dotenv = require('dotenv');
-const connectDatabase = require('../backend/database/database');
+const connectDatabase = require('../database/database');
 
-const products = require('../backend/database/productData.json');
+const products = require('../database/productData.json');
 
 // Setting dotenv file
 dotenv.config({ path: 'backend/config/config.env' })

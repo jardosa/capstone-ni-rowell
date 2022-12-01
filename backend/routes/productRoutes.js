@@ -54,7 +54,7 @@ router.route("/:productId").put(auth.verify, (req,res) => {
 });
 
 // Archive a specific product admin only
-router.route("/:productId/archive").put(auth.verify, (req, res) => {
+router.route("/:productId/archive").put(auth.verify, async (req, res) => {
 
     const data = {
         product: req.body,

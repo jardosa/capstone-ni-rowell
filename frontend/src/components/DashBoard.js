@@ -14,54 +14,11 @@ export default function Dash(){
 	const [allProducts, setAllProducts] = useState([]);
 
 	
-	const fetchData = () =>{
-	
-		fetch('http://localhost:4000/products/productlist',{
-			headers:{
-				"Authorization": `Bearer ${localStorage.getItem("token")}`
-			}
-		})
-		.then(res => res.json())
-		.then(data => {
-			console.log(data);
-
-			setAllProducts(data.map(product => {
-				return(
-					<tr key={product._id}>
-						<td>{product._id}</td>
-						<td>{product.productName}</td>
-						<td>{product.description}</td>
-						<td>{product.price}</td>
-						<td>{product.stock}</td>
-						<td>{product.isAvailable ? "Active" : "Inactive"}</td>
-						<td>
-							{
-								
-								(product.isAvailable)
-								?
-								<Button variant="danger" size="sm" onClick ={() => archive(product._id, product.productName)}>Archive</Button>
-								:
-								<>
-									
-									<Button variant="success" size="sm" onClick ={() => unarchive(product._id, product.productName)}>Unarchive</Button>
-
-									<Button as={ Link } to={`/editproduct/${product._id}`} variant="secondary" size="sm" className="m-2" >Edit</Button>
-								</>
-							}
-						</td>
-					</tr>
-				)
-			}))
-
-		})
-	}
-
-	
 	const archive = (productId, productName) =>{
 		console.log(productId);
 		console.log(productName);
 
-		fetch('http://localhost:4000/products/:productId/archive',{
+		fetch(`http://localhost:4000/products/${productId}/archive`,{
 			method: "PUT",
 			headers:{
 				"Content-Type": "application/json",
@@ -98,7 +55,7 @@ export default function Dash(){
 		console.log(productId);
 		console.log(productName);
 
-		fetch('http://localhost:4000/products/:productId/active',{
+		fetch(`http://localhost:4000/products/${productId}/activate`,{
 			method: "PUT",
 			headers:{
 				"Content-Type": "application/json",
@@ -130,11 +87,25 @@ export default function Dash(){
 		})
 	}
 
+	const fetchData = () =>{
+	
+		fetch('http://localhost:4000/products/productlist',{
+			headers:{
+				"Authorization": `Bearer ${localStorage.getItem("token")}`
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+			console.log(data);
+			setAllProducts(data)
+		})
+	};
+
+
 	
 	useEffect(()=>{
-	
 		fetchData();
-	})
+	}, [])
 	
 
 	return(
@@ -160,11 +131,34 @@ export default function Dash(){
 		       </tr>
 		     </thead>
 		     <tbody>
-		       { allProducts }
+		       { allProducts.map((product) => <ProductRow product={product} key={product._id} archive={archive} unarchive={unarchive} />) }
 		     </tbody>
 		   </Table>
 		</>
 		:
 		<Navigate to="/products" />
 	)
+}
+
+const ProductRow = ({product = {_id: "", productName: "", description: "", price: "", stock: "", isAvailable: "Inactive"}, archive, unarchive}) => {
+	return <tr>
+		<td>{product._id}</td>
+		<td>{product.productName}</td>
+		<td>{product.description}</td>
+		<td>{product.price}</td>
+		<td>{product.stock}</td>
+		<td>{product.isAvailable ? "Active" : "Inactive"}</td>
+		<td>
+			{(product.isAvailable)
+				?
+				<Button variant="danger" size="sm" onClick={() => archive(product._id, product.productName)}>Archive</Button>
+				:
+				<>
+
+					<Button variant="success" size="sm" onClick={() => unarchive(product._id, product.productName)}>Unarchive</Button>
+
+					<Button as={Link} to={`/editproduct/${product._id}`} variant="secondary" size="sm" className="m-2">Edit</Button>
+				</>}
+		</td>
+	</tr>;
 }
